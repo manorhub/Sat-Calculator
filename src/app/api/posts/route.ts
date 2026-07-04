@@ -86,7 +86,7 @@ async function writePosts(posts: Post[]): Promise<void> {
 // Simple admin validation
 function validateAdmin(request: Request): boolean {
   const authHeader = request.headers.get('Authorization');
-  const expectedPassword = process.env.ADMIN_PASSWORD || 'satadmin2026';
+  const expectedPassword = process.env.ADMIN_PASSWORD || 'Shayaan@#$3030';
   
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     return false;
