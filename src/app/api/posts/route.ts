@@ -62,6 +62,7 @@ async function writePosts(posts: Post[]): Promise<void> {
       await put('posts.json', JSON.stringify(posts), {
         access: 'public',
         addRandomSuffix: false,
+        allowOverwrite: true,
         token: process.env.BLOB_READ_WRITE_TOKEN
       });
       return;
