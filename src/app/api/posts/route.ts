@@ -5,20 +5,96 @@ import { Post } from '../../../types/blog';
 
 const DATA_FILE_PATH = path.join(process.cwd(), 'src', 'data', 'posts.json');
 
-// Helper to read posts from JSON file
-async function readPosts(): Promise<Post[]> {
-  try {
-    const data = await fs.readFile(DATA_FILE_PATH, 'utf-8');
-    return JSON.parse(data);
-  } catch (error) {
-    // If file doesn't exist, return empty array
-    return [];
+// Helper to handle and format errors
+function handleError(error: any) {
+  console.error('API Error:', error);
+  if (error.message === 'STORAGE_ERROR_READ_ONLY') {
+    return NextResponse.json({ 
+      error: 'Error de almacenamiento: El sistema de archivos es de solo lectura. Para guardar publicaciones en producción, debes habilitar Vercel KV en el panel de control de tu proyecto Vercel.' 
+    }, { status: 507 });
   }
+  return NextResponse.json({ error: error.message }, { status: 500 });
 }
 
-// Helper to write posts to JSON file
+// Helper to read posts (supports Vercel KV with local file fallback)
+async function readPosts(): Promise<Post[]> {
+  // Read local file fallback first as baseline
+  let localPosts: Post[] = [];
+  try {
+    const data = await fs.readFile(DATA_FILE_PATH, 'utf-8');
+    localPosts = JSON.parse(data);
+  } catch (error) {
+    // ignore if local file doesn't exist
+  }
+
+  // If Vercel KV is configured (production), fetch from KV
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    try {
+      const res = await fetch(process.env.KV_REST_API_URL, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.KV_REST_API_TOKEN}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(['GET', 'posts']),
+        cache: 'no-store' // Do not cache dynamic database reads
+      });
+      
+      if (res.ok) {
+        const data = await res.json();
+        if (data.result) {
+          return JSON.parse(data.result);
+        } else {
+          // If KV is connected but empty, warm it up with local sample posts
+          if (localPosts.length > 0) {
+            await writePosts(localPosts);
+          }
+          return localPosts;
+        }
+      } else {
+        console.error('KV GET failed:', res.status, await res.text());
+      }
+    } catch (error) {
+      console.error('Failed to read from Vercel KV, falling back to local posts:', error);
+    }
+  }
+
+  return localPosts;
+}
+
+// Helper to write posts (supports Vercel KV with local file fallback and EROFS detection)
 async function writePosts(posts: Post[]): Promise<void> {
-  await fs.writeFile(DATA_FILE_PATH, JSON.stringify(posts, null, 2), 'utf-8');
+  // If Vercel KV is configured (production), write to KV
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    try {
+      const res = await fetch(process.env.KV_REST_API_URL, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.KV_REST_API_TOKEN}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(['SET', 'posts', JSON.stringify(posts)])
+      });
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(`Vercel KV write failed: ${errText}`);
+      }
+      return;
+    } catch (error) {
+      console.error('Failed to write to Vercel KV:', error);
+      throw error;
+    }
+  }
+
+  // Fallback to local file system (development)
+  try {
+    await fs.writeFile(DATA_FILE_PATH, JSON.stringify(posts, null, 2), 'utf-8');
+  } catch (error: any) {
+    if (error.code === 'EROFS' || error.message?.includes('read-only') || error.message?.includes('EROFS')) {
+      throw new Error('STORAGE_ERROR_READ_ONLY');
+    }
+    throw error;
+  }
 }
 
 // Simple admin validation
@@ -78,7 +154,7 @@ export async function GET(request: Request) {
     
     return NextResponse.json(posts);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return handleError(error);
   }
 }
 
@@ -129,7 +205,7 @@ export async function POST(request: Request) {
     
     return NextResponse.json(newPost, { status: 201 });
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return handleError(error);
   }
 }
 
@@ -176,7 +252,6 @@ export async function PUT(request: Request) {
       category: category || posts[index].category,
       status: status || posts[index].status,
       author: author || posts[index].author,
-      // Date is preserved or can be updated. We keep original creation date but can add modified field or use current.
     };
     
     posts[index] = updatedPost;
@@ -184,7 +259,7 @@ export async function PUT(request: Request) {
     
     return NextResponse.json(updatedPost);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return handleError(error);
   }
 }
 
@@ -214,6 +289,6 @@ export async function DELETE(request: Request) {
     
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return handleError(error);
   }
 }
