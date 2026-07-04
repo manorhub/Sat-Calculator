@@ -4,6 +4,7 @@ import "../globals.css";
 import CookieBanner from "../../components/CookieBanner";
 import SEOHreflang from "../../components/SEO/SEOHreflang";
 import ThemeProvider from "../../components/ThemeProvider";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,6 +45,20 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-PFQQD895QD"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PFQQD895QD');
+          `}
+        </Script>
         <ThemeProvider>
           {children}
           <CookieBanner />
@@ -52,4 +67,5 @@ export default async function RootLayout({
     </html>
   );
 }
+
 
