@@ -304,21 +304,23 @@ export default function Home({ params }: { params: Promise<{ lang: string }> }) 
       </main>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-sm text-center md:text-left">
-          <div className="mb-4 md:mb-0">
+      <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-10 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4">
+          {/* Brand + Disclaimer */}
+          <div className="text-center md:text-left mb-6">
             <span className="font-extrabold text-slate-900 dark:text-white text-base">
               Calculadora<span className="text-blue-600">SAT</span>
             </span>
-            <p className="mt-1">{dict.footer.rights} {dict.footer.disclaimer}</p>
+            <p className="mt-1 text-slate-500 text-sm">{dict.footer.rights} {dict.footer.disclaimer}</p>
           </div>
-          <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3 mt-4 md:mt-0">
-            <Link href={lang === 'en' ? '/en/calendario-fiscal' : '/calendario-fiscal'} className="hover:text-slate-700 transition font-bold text-blue-600 dark:text-blue-400">{dict.nav.calendar}</Link>
-            <Link href={lang === 'en' ? '/en/developer' : '/developer'} className="hover:text-slate-700 transition font-bold text-indigo-600 dark:text-indigo-400">{dict.nav.developer}</Link>
-            <Link href={lang === 'en' ? '/en/privacy' : '/privacy'} className="hover:text-slate-700 transition">{dict.footer.privacy}</Link>
-            <Link href={lang === 'en' ? '/en/terms' : '/terms'} className="hover:text-slate-700 transition">{dict.footer.terms}</Link>
-            <Link href={lang === 'en' ? '/en/about' : '/about'} className="hover:text-slate-700 transition">{dict.nav.about}</Link>
-            <Link href={lang === 'en' ? '/en/contact' : '/contact'} className="hover:text-slate-700 transition">{dict.nav.contact}</Link>
+          {/* Links: 2-column grid on mobile, single row on desktop */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row md:flex-wrap gap-y-3 gap-x-6 justify-center md:justify-start text-sm text-slate-500">
+            <Link href={lang === 'en' ? '/en/calendario-fiscal' : '/calendario-fiscal'} className="hover:text-blue-600 transition font-bold text-blue-600 dark:text-blue-400 truncate">{dict.nav.calendar}</Link>
+            <Link href={lang === 'en' ? '/en/developer' : '/developer'} className="hover:text-indigo-700 transition font-bold text-indigo-600 dark:text-indigo-400 truncate">{dict.nav.developer}</Link>
+            <Link href={lang === 'en' ? '/en/privacy' : '/privacy'} className="hover:text-slate-700 transition truncate">{dict.footer.privacy}</Link>
+            <Link href={lang === 'en' ? '/en/terms' : '/terms'} className="hover:text-slate-700 transition truncate">{dict.footer.terms}</Link>
+            <Link href={lang === 'en' ? '/en/about' : '/about'} className="hover:text-slate-700 transition truncate">{dict.nav.about}</Link>
+            <Link href={lang === 'en' ? '/en/contact' : '/contact'} className="hover:text-slate-700 transition truncate">{dict.nav.contact}</Link>
           </div>
         </div>
       </footer>
