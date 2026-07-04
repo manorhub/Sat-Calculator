@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "home": "Home",
+    "calculators": "Calculators",
+    "calendar": "Tax Calendar",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "developer": "API Developers"
+  },
+  "footer": {
+    "rights": "© 2026 Calculadora SAT. All rights reserved.",
+    "disclaimer": "This site is not affiliated with the official Mexican Tax Administration Service (SAT).",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "ai_callout": {
+    "badge": "Smart Feature",
+    "title": "Questions about SAT? Ask our AI Tax Assistant",
+    "desc": "Solve your doubts about deductions, tax regimes, or step-by-step explanations directly with Artificial Intelligence.",
+    "button": "Start AI Assistant ✨"
+  },
+  "home": {
+    "hero_badge": "Free Tools 100% Updated for 2026",
+    "hero_title": "Mexican Tax & Financial Calculators",
+    "hero_desc": "Perform calculations for taxes, payroll, loans, investments, and depreciation for free, instantly, and with legal backing.",
+    "search_placeholder": "Search calculator... (e.g. IVA, RESICO, ISR, Overtime)",
+    "favorites_title": "Your Favorite Calculators",
+    "favorites_empty": "Mark calculators with a star ⭐ to get direct access here.",
+    "categories_title": "Browse by Category",
+    "categories_desc": "Select an area of interest to see the available tools.",
+    "stats_calculators": "calculator(s) available"
+  },
+  "categories": {
+    "sat": {
+      "name": "SAT Taxes",
+      "desc": "ISR, IVA, withholding tax, and provisional monthly return calculators."
+    },
+    "nomina": {
+      "name": "Payroll & Labor",
+      "desc": "Calculate net/gross salaries, Christmas bonuses (Aguinaldo), profit sharing (PTU), vacations, and overtime."
+    },
+    "hipotecas": {
+      "name": "Mortgages",
+      "desc": "Credit simulators for home acquisition and monthly payment estimates."
+    },
+    "prestamos": {
+      "name": "Loans",
+      "desc": "Amortization of personal loans with weekly, bi-weekly, or monthly payments."
+    },
+    "inversiones": {
+      "name": "Investments",
+      "desc": "Yield projection in Mexican Treasury Certificates (CETES) and fixed-income assets."
+    },
+    "interes-compuesto": {
+      "name": "Compound Interest",
+      "desc": "Visualize the growth of your capital over the long term."
+    },
+    "tipo-de-cambio": {
+      "name": "Exchange Rate",
+      "desc": "Official and market converter from USD to MXN and exchange rates."
+    },
+    "negocios": {
+      "name": "Business",
+      "desc": "Breakeven point, profit margins, and cost calculators."
+    },
+    "contabilidad": {
+      "name": "Accounting",
+      "desc": "Depreciation of fixed assets according to the Mexican Income Tax Law (LISR)."
+    },
+    "finanzas-personales": {
+      "name": "Personal Finance",
+      "desc": "Projections for Mexican retirement funds (AFORE), pension, and 50/30/20 budget."
+    }
+  },
+  "engine": {
+    "tab_calculator": "Calculator",
+    "tab_guide": "Guide & Explanation",
+    "tab_faq": "FAQ",
+    "input_header": "Input Parameters",
+    "result_disclaimer": "Net result calculated according to current legislation.",
+    "btn_copy": "Copy",
+    "btn_copied": "Copied",
+    "btn_share": "Share",
+    "btn_save": "Save",
+    "btn_excel": "Excel / CSV",
+    "btn_print": "Print",
+    "save_modal_title": "Save Current Calculation",
+    "save_modal_desc": "Assign a name to this calculation to quickly identify it in your local history.",
+    "save_modal_placeholder": "e.g., January Payroll 2026",
+    "btn_cancel": "Cancel",
+    "btn_confirm": "Confirm Save",
+    "desglose_title": "Calculation Breakdown",
+    "steps_title": "Step-by-Step Calculation Explanation",
+    "step_prefix": "Step",
+    "guide_title": "How does this calculation work?",
+    "guide_formula": "Mathematical Formula",
+    "guide_example": "Practical Example",
+    "guide_tips": "Tax Tips and Recommendations",
+    "guide_errors": "Common Errors to Avoid",
+    "guide_legislation": "Legal Framework and Related Legislation",
+    "faq_title": "Frequently Asked Questions",
+    "history_title": "Recent Saved Calculations",
+    "back_to_category": "Back to category"
+  }
+}

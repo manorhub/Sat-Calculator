@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "calculators": "Calculadoras",
+    "calendar": "Calendario Fiscal",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "developer": "API Developers"
+  },
+  "footer": {
+    "rights": "© 2026 Calculadora SAT. Todos los derechos reservados.",
+    "disclaimer": "Este sitio no está afiliado al Servicio de Administración Tributaria (SAT) oficial de México.",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  },
+  "ai_callout": {
+    "badge": "Novedad Inteligente",
+    "title": "¿Dudas con el SAT? Pregunta a nuestro Asistente Fiscal IA",
+    "desc": "Resuelve tus dudas sobre deducciones, regímenes fiscales o explicaciones paso a paso directamente con Inteligencia Artificial.",
+    "button": "Iniciar Asistente IA ✨"
+  },
+  "home": {
+    "hero_badge": "Herramientas Gratuitas 100% Actualizadas para 2026",
+    "hero_title": "Calculadoras Fiscales y Financieras México",
+    "hero_desc": "Realiza proyecciones de impuestos, nómina, préstamos, inversiones y depreciaciones de forma gratuita, inmediata y con fundamento legal.",
+    "search_placeholder": "Buscar calculadora... (ej: IVA, RESICO, ISR, Horas Extra)",
+    "favorites_title": "Tus Calculadoras Favoritas",
+    "favorites_empty": "Marca calculadoras con una estrella ⭐ para tener acceso directo aquí.",
+    "categories_title": "Explorar por Categoría",
+    "categories_desc": "Selecciona un área de interés para ver las herramientas disponibles.",
+    "stats_calculators": "calculadora(s) disponible(s)"
+  },
+  "categories": {
+    "sat": {
+      "name": "Impuestos SAT",
+      "desc": "Calculadoras de ISR, IVA, retenciones y declaraciones provisionales."
+    },
+    "nomina": {
+      "name": "Nómina y LFT",
+      "desc": "Calcula sueldos neto/bruto, aguinaldo, PTU, vacaciones y horas extra."
+    },
+    "hipotecas": {
+      "name": "Hipotecas",
+      "desc": "Simuladores de crédito para la adquisición de vivienda."
+    },
+    "prestamos": {
+      "name": "Préstamos",
+      "desc": "Amortización de préstamos personales con pagos semanales y mensuales."
+    },
+    "inversiones": {
+      "name": "Inversiones",
+      "desc": "Proyección de rendimientos en CETES y renta fija."
+    },
+    "interes-compuesto": {
+      "name": "Interés Compuesto",
+      "desc": "Visualiza el crecimiento de tu capital a largo plazo."
+    },
+    "tipo-de-cambio": {
+      "name": "Tipo de Cambio",
+      "desc": "Convertidor oficial de USD a MXN y divisas."
+    },
+    "negocios": {
+      "name": "Negocios",
+      "desc": "Punto de equilibrio, margen de ganancia y costos."
+    },
+    "contabilidad": {
+      "name": "Contabilidad",
+      "desc": "Depreciación de activos fijos según la Ley del ISR."
+    },
+    "finanzas-personales": {
+      "name": "Finanzas Personales",
+      "desc": "Proyecciones de AFORE, jubilación y presupuestos 50/30/20."
+    }
+  },
+  "engine": {
+    "tab_calculator": "Calculadora",
+    "tab_guide": "Guía y Explicación",
+    "tab_faq": "Preguntas Frecuentes",
+    "input_header": "Parámetros de Entrada",
+    "result_disclaimer": "Resultado neto calculado de acuerdo a la legislación vigente.",
+    "btn_copy": "Copiar",
+    "btn_copied": "Copiado",
+    "btn_share": "Compartir",
+    "btn_save": "Guardar",
+    "btn_excel": "Excel / CSV",
+    "btn_print": "Imprimir",
+    "save_modal_title": "Guardar Cálculo Actual",
+    "save_modal_desc": "Asigna un nombre a este cálculo para identificarlo rápidamente en tu historial local.",
+    "save_modal_placeholder": "Ej: Nómina Enero 2026",
+    "btn_cancel": "Cancelar",
+    "btn_confirm": "Confirmar Guardar",
+    "desglose_title": "Desglose del Cálculo",
+    "steps_title": "Explicación Paso a Paso del Cálculo",
+    "step_prefix": "Paso",
+    "guide_title": "¿Cómo funciona este cálculo?",
+    "guide_formula": "Fórmula Matemática",
+    "guide_example": "Ejemplo Práctico",
+    "guide_tips": "Consejos y Recomendaciones Fiscales",
+    "guide_errors": "Errores Comunes a Evitar",
+    "guide_legislation": "Marco Legal y Legislación Relacionada",
+    "faq_title": "Preguntas Frecuentes",
+    "history_title": "Cálculos Guardados Recientes",
+    "back_to_category": "Volver a la categoría"
+  }
+}
