@@ -104,7 +104,7 @@ export default function Home({ params }: { params: Promise<{ lang: string }> }) 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={dict.home.search_placeholder}
-                className="w-full px-6 py-4 rounded-2xl border-0 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-400 text-base"
+                className="w-full px-6 py-4 rounded-2xl border-0 bg-white text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-400 text-base"
               />
               <div className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">
                 🔍

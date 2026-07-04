@@ -16,12 +16,12 @@ export default async function TermsPage({ params }: PageProps) {
     return (
       <div className="bg-slate-50 dark:bg-slate-950 min-h-screen text-slate-800 dark:text-slate-200 font-sans">
         <header className="border-b border-slate-200 dark:border-slate-850 py-6 bg-white dark:bg-slate-900 shadow-sm">
-          <div className="max-w-4xl mx-auto px-4 flex justify-between items-center">
-            <Link href="/en" className="font-extrabold text-xl text-slate-900 dark:text-white">
+          <div className="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <Link href="/en" className="font-extrabold text-xl text-slate-900 dark:text-white hover:opacity-90 transition">
               Calculadora<span className="text-blue-600 dark:text-blue-400">SAT</span>
             </Link>
             <div className="flex items-center space-x-4">
-              <Link href="/en" className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">
+              <Link href="/en" className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline whitespace-nowrap">
                 ← Back to Home
               </Link>
               <LanguageSelector />
@@ -93,12 +93,12 @@ export default async function TermsPage({ params }: PageProps) {
   return (
     <div className="bg-slate-50 dark:bg-slate-955 min-h-screen text-slate-800 dark:text-slate-200 font-sans">
       <header className="border-b border-slate-200 dark:border-slate-850 py-6 bg-white dark:bg-slate-900 shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 flex justify-between items-center">
-          <Link href="/" className="font-extrabold text-xl text-slate-900 dark:text-white">
+        <div className="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <Link href="/" className="font-extrabold text-xl text-slate-900 dark:text-white hover:opacity-90 transition">
             Calculadora<span className="text-blue-600 dark:text-blue-400">SAT</span>
           </Link>
           <div className="flex items-center space-x-4">
-            <Link href="/" className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">
+            <Link href="/" className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline whitespace-nowrap">
               ← Volver al Inicio
             </Link>
             <LanguageSelector />

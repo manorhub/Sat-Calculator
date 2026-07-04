@@ -199,12 +199,12 @@ export default function CalendarioFiscal({ params }: PageProps) {
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen text-slate-900 dark:text-slate-100 font-sans">
       {/* Header */}
       <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-6">
-        <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
-          <Link href={lang === 'en' ? '/en' : '/'} className="font-extrabold text-xl text-slate-900 dark:text-white">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <Link href={lang === 'en' ? '/en' : '/'} className="font-extrabold text-xl text-slate-900 dark:text-white hover:opacity-90 transition">
             Calculadora<span className="text-blue-600">SAT</span>
           </Link>
-          <div className="flex items-center space-x-6">
-            <Link href={lang === 'en' ? '/en' : '/'} className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">
+          <div className="flex items-center space-x-4 sm:space-x-6">
+            <Link href={lang === 'en' ? '/en' : '/'} className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline whitespace-nowrap">
               {lang === 'en' ? '← Back to Calculators' : '← Regresar a Calculadoras'}
             </Link>
             <LanguageSelector />
@@ -395,7 +395,7 @@ export default function CalendarioFiscal({ params }: PageProps) {
 
       {/* Footer */}
       <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-sm text-center md:text-left">
           <div className="mb-4 md:mb-0">
             <span className="font-extrabold text-slate-900 dark:text-white text-base">
               Calculadora<span className="text-blue-600">SAT</span>
@@ -406,7 +406,7 @@ export default function CalendarioFiscal({ params }: PageProps) {
                 : '© 2026 Todos los derechos reservados. Este sitio no está afiliado al Servicio de Administración Tributaria (SAT) oficial.'}
             </p>
           </div>
-          <div className="flex space-x-6">
+          <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3 mt-4 md:mt-0">
             <Link href={lang === 'en' ? '/en/privacy' : '/privacy'} className="hover:text-slate-700 transition">{lang === 'en' ? 'Privacy' : 'Privacidad'}</Link>
             <Link href={lang === 'en' ? '/en/terms' : '/terms'} className="hover:text-slate-700 transition">{lang === 'en' ? 'Terms' : 'Términos'}</Link>
             <Link href={lang === 'en' ? '/en/about' : '/about'} className="hover:text-slate-700 transition">{lang === 'en' ? 'About Us' : 'Acerca de'}</Link>

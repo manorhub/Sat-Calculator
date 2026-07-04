@@ -24,3 +24,43 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Ensure inputs and selects have correct text color and background contrast under any forced dark theme or mobile device settings */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select,
+textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* For dark mode */
+@media (prefers-color-scheme: dark) {
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  select,
+  textarea {
+    background-color: #1e293b !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Also support dark class if any */
+.dark input[type="text"],
+.dark input[type="number"],
+.dark input[type="email"],
+.dark select,
+.dark textarea {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+
+/* Developer portal has its own dark theme inputs which are always dark */
+.bg-slate-900 input[type="text"],
+.bg-slate-900 select,
+.bg-slate-900 textarea {
+  background-color: #0f172a !important;
+  color: #f1f5f9 !important;
+}
