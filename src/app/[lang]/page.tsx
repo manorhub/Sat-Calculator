@@ -3,7 +3,10 @@
 import React, { useState, use } from 'react';
 import Link from 'next/link';
 import { calculators } from '../../calculators';
-import AIAssistant from '../../components/AI/AIAssistant';
+import dynamic from 'next/dynamic';
+const AIAssistant = dynamic(() => import('../../components/AI/AIAssistant'), {
+  ssr: false,
+});
 import LanguageSelector from '../../components/LanguageSelector';
 import ThemeToggle from '../../components/ThemeToggle';
 import esDict from '../../dictionaries/es.json';

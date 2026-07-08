@@ -2,7 +2,8 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getCalculatorsByCategory } from '../../../../calculators';
-import AIAssistant from '../../../../components/AI/AIAssistant';
+import dynamic from 'next/dynamic';
+const AIAssistant = dynamic(() => import('../../../../components/AI/AIAssistant'));
 import LanguageSelector from '../../../../components/LanguageSelector';
 import ThemeToggle from '../../../../components/ThemeToggle';
 

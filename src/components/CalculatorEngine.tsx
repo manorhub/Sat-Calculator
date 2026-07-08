@@ -326,6 +326,10 @@ export default function CalculatorEngine({ slug, lang = 'es' }: CalculatorEngine
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4 py-8">
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      />
       {/* Title Section */}
       <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
